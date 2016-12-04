@@ -1,5 +1,7 @@
 defmodule LoadLog.Load do
-  @moduledoc false
+  @moduledoc """
+  This module defines a function which retrieves current CPU load average data.
+  """
 
   @type data      :: {date_time, load_avg}
   @type date_time :: {date, time}
@@ -7,6 +9,10 @@ defmodule LoadLog.Load do
   @type time      :: {integer, integer, integer}
   @type load_avg  :: {number, number, number}
 
+  @doc """
+  This function gets CPU load average data at the moment this function is
+  called.
+  """
   @spec get() :: data
   def get(), do: {get_date, get_load}
 
