@@ -1,24 +1,10 @@
 # LoadLog
 
-**TODO: Add description**
+LoadLog is a simple OTP application that records CPU load average data.
 
-## Installation
+Please refer to the documentation for usage and configuration.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+# LICENSE
 
-  1. Add `load_log` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:load_log, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `load_log` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:load_log]]
-    end
-    ```
+MIT License. Please read `LICENSE` file for the full text.
 
