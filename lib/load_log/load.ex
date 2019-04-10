@@ -14,7 +14,7 @@ defmodule LoadLog.Load do
   called.
   """
   @spec get() :: data
-  def get(), do: {get_date, get_load}
+  def get(), do: {get_date(), get_load()}
 
   @spec get_date() :: date_time
   defp get_date(), do: :calendar.local_time
@@ -23,6 +23,6 @@ defmodule LoadLog.Load do
   defp get_load() do
     [:avg1, :avg5, :avg15]
     |> Enum.map(&(apply(:cpu_sup, &1, []) / 256))
-    |> List.to_tuple
+    |> List.to_tuple()
   end
 end

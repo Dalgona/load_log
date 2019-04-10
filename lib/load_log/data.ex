@@ -18,6 +18,11 @@ defmodule LoadLog.Data do
     GenServer.start_link(__MODULE__, %{data: [], count: 0}, name: __MODULE__)
   end
 
+  @impl true
+  def init(args) do
+    {:ok, args}
+  end
+
   @doc """
   Clears logged data.
   """
@@ -53,6 +58,7 @@ defmodule LoadLog.Data do
     {:reply, :ok, %{data: [], count: 0}}
   end
 
+  @impl true
   def handle_call(:update, _from, %{data: data, count: count}) do
     [first|rest] = data ++ [Load.get()]
     if count == Application.get_env(:load_log, :max_items) do
@@ -62,6 +68,7 @@ defmodule LoadLog.Data do
     end
   end
 
+  @impl true
   def handle_call(:all, _from, state) do
     %{data: data} = state
     {:reply, data, state}
