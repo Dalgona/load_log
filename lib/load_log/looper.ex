@@ -5,7 +5,7 @@ defmodule LoadLog.Looper do
 
   def start_link() do
     pid = spawn_link fn ->
-      do_loop
+      do_loop()
     end
     {:ok, pid}
   end
@@ -13,6 +13,6 @@ defmodule LoadLog.Looper do
   defp do_loop() do
     Data.update()
     :timer.sleep(Application.get_env(:load_log, :interval))
-    do_loop
+    do_loop()
   end
 end
